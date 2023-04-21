@@ -7,7 +7,7 @@
 
 #define MAX_MQTT_REFRESH_SEC 60*60*24 // 1 day
 
-#define MQTT_ACTION_TOPIC        "homeplate/" MQTT_NODE_ID "/activity/run"
+#define MQTT_ACTION_TOPIC        "inkplate/" MQTT_NODE_ID "/activity/run"
 #define MQTT_DISCOVERY_TOPIC     "homeassistant"
 #define mqtt_base_sensor(topic)  MQTT_DISCOVERY_TOPIC "/sensor/" MQTT_NODE_ID "/" topic
 #define mqtt_unique_id(id)       MQTT_NODE_ID "_" id

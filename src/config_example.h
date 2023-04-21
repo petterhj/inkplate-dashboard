@@ -1,13 +1,11 @@
 #pragma once
 
-// WiFi SSID
+// WiFi
 #define WIFI_SSID "WiFi Network Name" 
-// WiFi password
 #define WIFI_PASSWORD "WiFi Password"
 
-// hostname
-// NOTE: if using multiple homeplate devices, you MUST make the hostname unique
-#define HOSTNAME "homeplate"
+// Hostname
+#define HOSTNAME "inkplate"
 
 // How long to sleep between image refreshes
 #define TIME_TO_SLEEP_MIN 20
@@ -39,8 +37,8 @@
 //#define MQTT_USER "mqtt username"
 //#define MQTT_PASSWORD "mqtt password"
 // Customize node id and device name if needed
-//#define MQTT_NODE_ID "homeplate"	// defaults to HOSTNAME
-//#define MQTT_DEVICE_NAME "HomePlate"	// defaults to "HomePlate"
+//#define MQTT_NODE_ID "inkplate"	// defaults to HOSTNAME
+//#define MQTT_DEVICE_NAME "Inkplate"	// defaults to "Inkplate"
 
 // Disables touchpads if they are overly sensitive and result in phantom touch events
 #define TOUCHPAD_ENABLE true

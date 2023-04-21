@@ -173,7 +173,7 @@ void delaySleep(uint seconds);
 #endif
 
 #if !defined MQTT_DEVICE_NAME
-#define MQTT_DEVICE_NAME "HomePlate"
+#define MQTT_DEVICE_NAME "Inkplate"
 #endif
 
 // Sleep
