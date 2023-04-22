@@ -32,3 +32,20 @@ pio upgrade
 pio pkg update
 pio run --target clean
 ```
+
+### WSL
+
+Using PlatformIO under WSL on Windows is not really straightforward. This is a workaround, while somewhat cumbersome, to be able to continue developing under WSL (given that PlatformIO is installed on the host system):
+
+```sh
+$ rsync -avv . /mnt/c/Users/<username>/src/inkplate-dashboard \
+    --exclude .pio \
+    --exclude .git
+```
+
+```sh
+cd C:\Users\<username>\src\inkplate-dashboard
+C:\Users\<username>\.platformio\penv\Scripts\activate
+pio pkg update
+pio run -e inkplate10 --upload-port COM3 --monitor-port COM3
+```
