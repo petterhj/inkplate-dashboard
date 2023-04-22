@@ -55,7 +55,7 @@ void displayInfoScreen()
   // Title
   display.setFont(&Roboto_32);
   display.setTextSize(1);
-  uint32_t y = centerTextX("HomePlate Info", 0, E_INK_WIDTH, 100, false);
+  uint32_t y = centerTextX("Inkplate Info", 0, E_INK_WIDTH, 100, false);
   display.setFont(&Roboto_16);
   // version
   snprintf(buff, 1024, "Version: [%s]", VERSION);

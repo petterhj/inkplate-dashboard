@@ -25,7 +25,8 @@ bool remotePNG(const char *url)
     Serial.print("[IMAGE] Downloading image: ");
     Serial.println(url);
     // set len for png image, or set 54373?
-    static int32_t defaultLen = E_INK_WIDTH * E_INK_HEIGHT * 4 + 100;
+    // static int32_t defaultLen = E_INK_WIDTH * E_INK_HEIGHT * 4 + 100;
+    static int32_t defaultLen = 54373;
     uint8_t *buff = display.downloadFile(url, &defaultLen);
     if (!buff)
     {
@@ -180,7 +181,7 @@ void displayStatusMessage(const char *format, ...)
     displayStart();
     display.selectDisplayMode(INKPLATE_1BIT);
     display.setTextColor(BLACK, WHITE);       // Set text color to black on white
-    display.setFont(&Roboto_16);
+    display.setFont(&Roboto_12);
     display.setTextSize(1);
 
     const int16_t pad = 3;           // padding
@@ -211,18 +212,18 @@ void displayStatusMessage(const char *format, ...)
 
 void splashScreen()
 {
-    static const char *splashName = "HomePlate";
+    static const char *splashName = "Booting...";
     displayStart();
     display.selectDisplayMode(INKPLATE_1BIT); // testing
     display.setTextColor(BLACK, WHITE);       // Set text color to black on white
-    display.setFont(&Roboto_128);
+    display.setFont(&Roboto_64);
     display.setTextSize(1);
 
     // Roboto_64, size: 1, center (439, 437)
     // Roboto_64, size: 2, center (279, 461)
     // Roboto_128, size: 1, center (285, 461)
-    int16_t x = 285;
-    int16_t y = 461;
+    int16_t x = 439;
+    int16_t y = 437;
     bool dynamicPlacement = false;
     if (dynamicPlacement)
     {
