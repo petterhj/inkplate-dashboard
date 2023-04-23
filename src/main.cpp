@@ -50,6 +50,9 @@ void setup()
     i2cStart();
     display.begin();             // Init Inkplate library (you should call this function ONLY ONCE)
     display.rtcClearAlarmFlag(); // Clear alarm flag from any previous alarm
+
+    // display.pinModeIO(IO_PIN_B7, INPUT_PULLUP, IO_INT_ADDR);
+
     // set which pads can allow wakeup
     display.setIntPin(PAD1, RISING, IO_INT_ADDR);
     display.setIntPin(PAD2, RISING, IO_INT_ADDR);

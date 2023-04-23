@@ -5,6 +5,7 @@
 #define INT_PAD1 (1 << (PAD1 - 8)) // 0x04
 #define INT_PAD2 (1 << (PAD2 - 8)) // 0x08
 #define INT_PAD3 (1 << (PAD3 - 8)) // 0x10
+#define INT_BTN IO_PIN_B7
 
 // read a byte from the expander
 unsigned int readMCPRegister(const byte reg)
@@ -46,13 +47,15 @@ void checkButtons(void *params)
         }
         printDebug("[INPUT] checking for buttons...");
         i2cStart();
+
         // check buttons
         if (TOUCHPAD_ENABLE)
         {
             if (checkPad(PAD1))
             {
                 Serial.printf("[INPUT] touchpad 1\n");
-                startActivity(HomeAssistant);
+                // startActivity(HomeAssistant);
+                startActivity(Commute);
                 button = true;
             }
             else if (checkPad(PAD2))
@@ -109,6 +112,9 @@ void checkBootPads()
     i2cStart();
     key = readMCPRegister(MCP23017_INTFB);
     i2cEnd();
+
+    Serial.println("[INPUT] checkBootPads, key=" + key);
+
     if (key) // which pin caused interrupt
     {
         // Serial.printf("INTFB: %#x\n", keyInt);
@@ -116,7 +122,8 @@ void checkBootPads()
         if (key & INT_PAD1)
         {
             Serial.println("[INPUT] boot: PAD1");
-            startActivity(HomeAssistant);
+            // startActivity(HomeAssistant);
+            startActivity(Commute);
         }
         else if (key & INT_PAD2)
         {

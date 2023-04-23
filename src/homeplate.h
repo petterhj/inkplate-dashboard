@@ -119,6 +119,7 @@ enum Activity
 {
     NONE,
     HomeAssistant,
+    Commute,
     GuestWifi,
     Info,
     Message,

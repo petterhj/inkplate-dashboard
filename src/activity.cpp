@@ -99,6 +99,19 @@ void runActivities(void *params)
             remotePNG(IMAGE_URL);
             // delaySleep(10);
             break;
+        case Commute:
+            //setSleepDuration(TIME_TO_SLEEP_SEC);
+            setSleepRefresh(SEC_TIME_TO_SLEEP_SEC);
+            waitForWiFiOrActivityChange();
+            if (resetActivity)
+            {
+                Serial.printf("[ACTIVITY][ERROR] HomeAssistant Activity reset while waiting, aborting...\n");
+                continue;
+            }
+            // get & render image
+            delaySleep(20);
+            remotePNG(SEC_IMAGE_URL);
+            break;
         case GuestWifi:
             setSleepDuration(TIME_TO_QUICK_SLEEP_SEC);
             displayWiFiQR();
